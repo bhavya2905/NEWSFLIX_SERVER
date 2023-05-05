@@ -7,7 +7,7 @@ import articlesRoutes from "./routes/articlesRouter.js";
 import bodyParser from 'body-parser';
 
 import { fetchYoutubeData }  from "./youtube.js"
-const PORT =process.env.PORT || 5000;
+const PORT = 5000;
 
 dotenv.config(); //initializing all env variables (wtevr written in dotenv)
 
@@ -21,7 +21,7 @@ app.use(express.json({limit: '50mb'}));
 
 const start_server = async ()=>{
 try {
-    connectDB(process.env.MONGODB_URL);
+    connectDB("mongodb+srv://bhavyamadineni29:Bhavya%40mongo1@cluster0.8esbbxz.mongodb.net/?retryWrites=true&w=majority");
     app.use('/api/user', userRoutes);
     app.use('/api/admin',articlesRoutes);
     app.get("/api/youtube/:id", async (req, res) => {
